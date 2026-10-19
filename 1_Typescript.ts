@@ -51,55 +51,87 @@
 
 // console.log(typeof "String");
 
-function add(a: number, b: number): number {
-  return a + b;
-}
+// function add(a: number, b: number): number {
+//   return a + b;
+// }
 
-console.log(add(10, 20)); // 30
+// console.log(add(10, 20)); // 30
 
-function print(a: number | string | boolean): void {
-  console.log(a);
-}
+// function print(a: number | string | boolean): void {
+//   console.log(a);
+// }
 
-function welcome(name: string, age?: number): void {
-  console.log(`Hello, ${name}`);
+// function welcome(name: string, age?: number): void {
+//   console.log(`Hello, ${name}`);
 
-  if (age !== undefined) {
-    console.log(`Age: ${age}`);
-  }
-}
+//   if (age !== undefined) {
+//     console.log(`Age: ${age}`);
+//   }
+// }
 
-welcome("Krishna");
-welcome("Krishna", 20);
+// welcome("Krishna");
+// welcome("Krishna", 20);
 
-function greet(name: string = "Guest"): void {
-  console.log(`Hello, ${name}!`);
-}
+// function greet(name: string = "Guest"): void {
+//   console.log(`Hello, ${name}!`);
+// }
 
-greet(); // Hello, Guest!
-greet("Krishna"); // Hello, Krishna!
+// greet(); // Hello, Guest!
+// greet("Krishna"); // Hello, Krishna!
 
-const multiply = (a: number, b: number): number => {
-  return a * b;
+// const multiply = (a: number, b: number): number => {
+//   return a * b;
+// };
+
+// console.log(multiply(4, 5)); // 20
+
+// const square = (n: number): number => n * n;
+
+// console.log(square(5)); // 25
+
+// const calculateTotal = (
+//   price: number,
+//   quantity: number,
+//   discount: number = 0,
+// ): number => {
+//   const totalPrice = price * quantity - discount;
+//   return totalPrice;
+// };
+
+// console.log(calculateTotal(100, 2)); // 200
+// console.log(calculateTotal(100, 2, 50)); // 150
+
+// Array, tuples and objects
+
+// Arrays
+const nums: number[] = [2, 2, 34, 56, 78];
+nums.push(3);
+nums.push(34);
+nums.pop();
+
+const marks: number[] = [85, 90, 95];
+const names: string[] = ["Krishna", "Rahul"];
+
+marks.push(88); //
+// marks.push("ninety"); Errors
+
+// Tuples
+const person: [string, number] = ["Krishna", 20];
+const user: [string, number] = ["Bugu", 20];
+
+console.log(user[0]); // Krishna
+console.log(user[1]); // 20
+
+// Objects
+
+const people: {
+  name: string;
+  age: number;
+  isAlive: boolean;
+} = {
+  name: "Bhumika",
+  age: 19,
+  isAlive: true,
 };
 
-console.log(multiply(4, 5)); // 20
-
-const square = (n: number): number => n * n;
-
-console.log(square(5)); // 25
-
-const calculateTotal = (
-  price: number,
-  quantity: number,
-  discount?: number,
-): number => {
-  let totalPrice: number;
-  if (discount) {
-    totalPrice = price * quantity - discount;
-  } else {
-    totalPrice = totalPrice = price * quantity;
-  }
-
-  return totalPrice;
-};
+console.log(people.isAlive, people.name, people.isAlive);
