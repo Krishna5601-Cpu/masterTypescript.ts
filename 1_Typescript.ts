@@ -170,3 +170,28 @@ const product2: Product = {
   inStock: false,
 };
 
+// Interface
+
+interface Student {
+  name: string;
+  price: number;
+  inStock: boolean;
+}
+
+const s1: Student = {
+  name: "Krishna",
+  price: 99999999999,
+  inStock: false,
+};
+
+interface Student2 {
+  name: string;
+  age: number;
+  course: string;
+}
+
+const student1: Student2 = {
+  name: "Krishna",
+  age: 20,
+  course: "BCA",
+};
