@@ -195,3 +195,34 @@ const student1: Student2 = {
   age: 20,
   course: "BCA",
 };
+
+// interface User {
+//   name: string;
+// }
+
+// interface Admin extends User {
+//   powers: string[];
+// };
+
+// interface User {
+//   name: string;
+// }
+
+// interface Admin extends User {
+//   permissions: string[];
+// }
+
+// const admin: Admin = {
+//   name: "Krishna",
+//   permissions: ["read", "write", "delete"],
+// };
+
+
+// type User = {
+//   name: string;
+// };
+
+// type Admin = User & {
+//   permissions: string[];
+// };
+
