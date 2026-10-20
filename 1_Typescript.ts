@@ -103,98 +103,98 @@
 
 // Array, tuples and objects
 
-// Arrays
-const nums: number[] = [2, 2, 34, 56, 78];
-nums.push(3);
-nums.push(34);
-nums.pop();
+// // Arrays
+// const nums: number[] = [2, 2, 34, 56, 78];
+// nums.push(3);
+// nums.push(34);
+// nums.pop();
 
-const marks: number[] = [85, 90, 95];
-const names: string[] = ["Krishna", "Rahul"];
+// const marks: number[] = [85, 90, 95];
+// const names: string[] = ["Krishna", "Rahul"];
 
-marks.push(88); //
-// marks.push("ninety"); Errors
+// marks.push(88); //
+// // marks.push("ninety"); Errors
 
-// Tuples
-const person: [string, number] = ["Krishna", 20];
-const user: [string, number] = ["Bugu", 20];
+// // Tuples
+// const person: [string, number] = ["Krishna", 20];
+// const user: [string, number] = ["Bugu", 20];
 
-console.log(user[0]); // Krishna
-console.log(user[1]); // 20
+// console.log(user[0]); // Krishna
+// console.log(user[1]); // 20
 
-// Objects
+// // Objects
 
-const people: {
-  name: string;
-  age: number;
-  isAlive: boolean;
-} = {
-  name: "Bhumika",
-  age: 19,
-  isAlive: true,
-};
+// const people: {
+//   name: string;
+//   age: number;
+//   isAlive: boolean;
+// } = {
+//   name: "Bhumika",
+//   age: 19,
+//   isAlive: true,
+// };
 
-console.log(people.isAlive, people.name, people.isAlive);
+// console.log(people.isAlive, people.name, people.isAlive);
 
-const product: {
-  name: string;
-  price: number;
-  inStock: boolean;
-  tags: string[];
-} = {
-  name: "Divya kii ice cream",
-  price: 999999999,
-  inStock: true,
-  tags: ["D", "I", "V", "Y", "A"],
-};
+// const product: {
+//   name: string;
+//   price: number;
+//   inStock: boolean;
+//   tags: string[];
+// } = {
+//   name: "Divya kii ice cream",
+//   price: 999999999,
+//   inStock: true,
+//   tags: ["D", "I", "V", "Y", "A"],
+// };
 
-// Type and Interfaces
+// // Type and Interfaces
 
-// Type
+// // Type
 
-type Product = {
-  name: string;
-  price: number;
-  inStock: boolean;
-};
+// type Product = {
+//   name: string;
+//   price: number;
+//   inStock: boolean;
+// };
 
-const product1: Product = {
-  name: "Divya kii favourite ice cream",
-  price: 7678230251,
-  inStock: true,
-};
+// const product1: Product = {
+//   name: "Divya kii favourite ice cream",
+//   price: 7678230251,
+//   inStock: true,
+// };
 
-const product2: Product = {
-  name: "Pizza",
-  price: 300,
-  inStock: false,
-};
+// const product2: Product = {
+//   name: "Pizza",
+//   price: 300,
+//   inStock: false,
+// };
 
-// Interface
+// // Interface
 
-interface Student {
-  name: string;
-  price: number;
-  inStock: boolean;
-}
+// interface Student {
+//   name: string;
+//   price: number;
+//   inStock: boolean;
+// }
 
-const s1: Student = {
-  name: "Krishna",
-  price: 99999999999,
-  inStock: false,
-};
+// const s1: Student = {
+//   name: "Krishna",
+//   price: 99999999999,
+//   inStock: false,
+// };
 
-interface Student2 {
-  name: string;
-  age: number;
-  course: string;
-}
+// interface Student2 {
+//   name: string;
+//   age: number;
+//   course: string;
+// }
 
-const student1: Student2 = {
-  name: "Krishna",
-  age: 20,
-  course: "BCA",
-};
+// const student1: Student2 = {
+//   name: "Krishna",
+//   age: 20,
+//   course: "BCA",
+// };
 
 // interface User {
 //   name: string;
@@ -217,7 +217,6 @@ const student1: Student2 = {
 //   permissions: ["read", "write", "delete"],
 // };
 
-
 // type User = {
 //   name: string;
 // };
@@ -226,3 +225,40 @@ const student1: Student2 = {
 //   permissions: string[];
 // };
 
+interface Product {
+  readonly id: number;
+  name: string;
+  discount?: number;
+}
+
+const item: Product = {
+  id: 101,
+  name: "Ice Cream",
+};
+
+item.name = "Chocolate Ice Cream";
+item.discount = 10;
+// item.id = 102;
+
+interface Course {
+  name: string;
+  price: number;
+  duration: string;
+  isAvailable: boolean;
+  rating?: number;
+}
+
+const webDev: Course = {
+  name: "Web Dev",
+  price: 1500,
+  duration: "3 months",
+  isAvailable: true,
+  rating: 9.9,
+};
+
+const aiDev: Course = {
+  name: "Ai Dev",
+  price: 1499,
+  duration: "3 months",
+  isAvailable: true,
+};
