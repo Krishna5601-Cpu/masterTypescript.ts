@@ -135,3 +135,38 @@ const people: {
 };
 
 console.log(people.isAlive, people.name, people.isAlive);
+
+const product: {
+  name: string;
+  price: number;
+  inStock: boolean;
+  tags: string[];
+} = {
+  name: "Divya kii ice cream",
+  price: 999999999,
+  inStock: true,
+  tags: ["D", "I", "V", "Y", "A"],
+};
+
+// Type and Interfaces
+
+// Type
+
+type Product = {
+  name: string;
+  price: number;
+  inStock: boolean;
+};
+
+const product1: Product = {
+  name: "Divya kii favourite ice cream",
+  price: 7678230251,
+  inStock: true,
+};
+
+const product2: Product = {
+  name: "Pizza",
+  price: 300,
+  inStock: false,
+};
+
