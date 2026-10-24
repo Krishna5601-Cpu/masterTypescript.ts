@@ -265,35 +265,79 @@
 
 // Union Types
 
-let ID: string | number;
-ID = 69;
-ID = "Krishna";
+// let ID: string | number;
+// ID = 69;
+// ID = "Krishna";
 
-// ID = true
+// // ID = true
 
-// Type Literals
-type orderStatus = "Success" | "Fail" | "Pending";
+// // Type Literals
+// type orderStatus = "Success" | "Fail" | "Pending";
 
-let Status: orderStatus = "Fail";
+// let Status: orderStatus = "Fail";
 
-// Type narrowing
-function display(value: string | number): void {
+// // Type narrowing
+// function display(value: string | number): void {
+//   if (typeof value === "string") {
+//     console.log(value.toUpperCase());
+//   } else {
+//     console.log(value.toFixed(2));
+//   }
+// }
+
+// display("krishna"); // KRISHNA
+// display(25); // 25.00
+
+// type ORDERSTATUS = "pending" | "processing" | "delivered" | "cancelled";
+
+// function updateOrderStatus(value: ORDERSTATUS): void {
+//   console.log(value);
+// }
+
+// updateOrderStatus("processing");
+// // updateOrderStatus("chuchu"); Error
+
+// Type narrowing with typeof -
+
+function formatValue(value: string | number): string {
   if (typeof value === "string") {
-    console.log(value.toUpperCase());
+    return value.toUpperCase();
+  }
+
+  return value.toFixed(2);
+}
+
+console.log(formatValue("krishna"));
+console.log(formatValue(25));
+
+formatValue(37);
+
+type Dog = { bark: () => void };
+type Cat = { meow: () => void };
+
+function makeSound(animal: Dog | Cat): void {
+  if ("bark" in animal) {
+    animal.bark();
   } else {
-    console.log(value.toFixed(2));
+    animal.meow();
   }
 }
 
-display("krishna"); // KRISHNA
-display(25); // 25.00
-
-
-type ORDERSTATUS = "pending" | "processing" | "delivered" | "cancelled";
-
-function updateOrderStatus(value: ORDERSTATUS): void {
-  console.log(value);
+function describe(value: Date | string): void {
+  if (value instanceof Date) {
+    console.log(value.getFullYear());
+  } else {
+    console.log(value.toUpperCase());
+  }
 }
 
-updateOrderStatus("processing");
-// updateOrderStatus("chuchu"); Error
+function printLength(value: string | string[]): void {
+  if (typeof value === "string") {
+    console.log(value.length);
+  } else if (Array.isArray(value)) {
+    console.log(value.length);
+  }
+}
+
+printLength("Krishna"); // 7
+printLength(["HTML", "CSS", "TypeScript"]); // 3

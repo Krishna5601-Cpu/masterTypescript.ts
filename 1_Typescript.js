@@ -201,23 +201,62 @@
 //   isAvailable: true,
 // };
 // Union Types
-let ID;
-ID = 69;
-ID = "Krishna";
-let Status = "Fail";
-// Type narrowing
-function display(value) {
+// let ID: string | number;
+// ID = 69;
+// ID = "Krishna";
+// // ID = true
+// // Type Literals
+// type orderStatus = "Success" | "Fail" | "Pending";
+// let Status: orderStatus = "Fail";
+// // Type narrowing
+// function display(value: string | number): void {
+//   if (typeof value === "string") {
+//     console.log(value.toUpperCase());
+//   } else {
+//     console.log(value.toFixed(2));
+//   }
+// }
+// display("krishna"); // KRISHNA
+// display(25); // 25.00
+// type ORDERSTATUS = "pending" | "processing" | "delivered" | "cancelled";
+// function updateOrderStatus(value: ORDERSTATUS): void {
+//   console.log(value);
+// }
+// updateOrderStatus("processing");
+// // updateOrderStatus("chuchu"); Error
+// Type narrowing with typeof -
+function formatValue(value) {
     if (typeof value === "string") {
-        console.log(value.toUpperCase());
+        return value.toUpperCase();
+    }
+    return value.toFixed(2);
+}
+console.log(formatValue("krishna"));
+console.log(formatValue(25));
+formatValue(37);
+function makeSound(animal) {
+    if ("bark" in animal) {
+        animal.bark();
     }
     else {
-        console.log(value.toFixed(2));
+        animal.meow();
     }
 }
-display("krishna"); // KRISHNA
-display(25); // 25.00
-function displayValue(value) {
-    console.log(value);
+function describe(value) {
+    if (value instanceof Date) {
+        console.log(value.getFullYear());
+    }
+    else {
+        console.log(value.toUpperCase());
+    }
 }
-displayValue("processing");
-// displayValue("chuchu"); Error
+function printLength(value) {
+    if (typeof value === "string") {
+        console.log(value.length);
+    }
+    else if (Array.isArray(value)) {
+        console.log(value.length);
+    }
+}
+printLength("Krishna"); // 7
+printLength(["HTML", "CSS", "TypeScript"]); // 3
