@@ -225,40 +225,75 @@
 //   permissions: string[];
 // };
 
-interface Product {
-  readonly id: number;
-  name: string;
-  discount?: number;
+// interface Product {
+//   readonly id: number;
+//   name: string;
+//   discount?: number;
+// }
+
+// const item: Product = {
+//   id: 101,
+//   name: "Ice Cream",
+// };
+
+// item.name = "Chocolate Ice Cream";
+// item.discount = 10;
+// // item.id = 102;
+
+// interface Course {
+//   name: string;
+//   price: number;
+//   duration: string;
+//   isAvailable: boolean;
+//   rating?: number;
+// }
+
+// const webDev: Course = {
+//   name: "Web Dev",
+//   price: 1500,
+//   duration: "3 months",
+//   isAvailable: true,
+//   rating: 9.9,
+// };
+
+// const aiDev: Course = {
+//   name: "Ai Dev",
+//   price: 1499,
+//   duration: "3 months",
+//   isAvailable: true,
+// };
+
+// Union Types
+
+let ID: string | number;
+ID = 69;
+ID = "Krishna";
+
+// ID = true
+
+// Type Literals
+type orderStatus = "Success" | "Fail" | "Pending";
+
+let Status: orderStatus = "Fail";
+
+// Type narrowing
+function display(value: string | number): void {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else {
+    console.log(value.toFixed(2));
+  }
 }
 
-const item: Product = {
-  id: 101,
-  name: "Ice Cream",
-};
+display("krishna"); // KRISHNA
+display(25); // 25.00
 
-item.name = "Chocolate Ice Cream";
-item.discount = 10;
-// item.id = 102;
 
-interface Course {
-  name: string;
-  price: number;
-  duration: string;
-  isAvailable: boolean;
-  rating?: number;
+type ORDERSTATUS = "pending" | "processing" | "delivered" | "cancelled";
+
+function updateOrderStatus(value: ORDERSTATUS): void {
+  console.log(value);
 }
 
-const webDev: Course = {
-  name: "Web Dev",
-  price: 1500,
-  duration: "3 months",
-  isAvailable: true,
-  rating: 9.9,
-};
-
-const aiDev: Course = {
-  name: "Ai Dev",
-  price: 1499,
-  duration: "3 months",
-  isAvailable: true,
-};
+updateOrderStatus("processing");
+// updateOrderStatus("chuchu"); Error
