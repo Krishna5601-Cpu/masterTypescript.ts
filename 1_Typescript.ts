@@ -299,45 +299,87 @@
 
 // Type narrowing with typeof -
 
-function formatValue(value: string | number): string {
-  if (typeof value === "string") {
-    return value.toUpperCase();
-  }
+// function formatValue(value: string | number): string {
+//   if (typeof value === "string") {
+//     return value.toUpperCase();
+//   }
 
-  return value.toFixed(2);
+//   return value.toFixed(2);
+// }
+
+// console.log(formatValue("krishna"));
+// console.log(formatValue(25));
+
+// formatValue(37);
+
+// type Dog = { bark: () => void };
+// type Cat = { meow: () => void };
+
+// function makeSound(animal: Dog | Cat): void {
+//   if ("bark" in animal) {
+//     animal.bark();
+//   } else {
+//     animal.meow();
+//   }
+// }
+
+// function describe(value: Date | string): void {
+//   if (value instanceof Date) {
+//     console.log(value.getFullYear());
+//   } else {
+//     console.log(value.toUpperCase());
+//   }
+// }
+
+// function printLength(value: string | string[]): void {
+//   if (typeof value === "string") {
+//     console.log(value.length);
+//   } else if (Array.isArray(value)) {
+//     console.log(value.length);
+//   }
+// }
+
+// printLength("Krishna"); // 7
+// printLength(["HTML", "CSS", "TypeScript"]); // 3
+
+// any, unknown, never
+
+// any
+
+let data: any = true;
+data = "hello";
+data = 67;
+
+// data.toUpperCase(); Error
+
+let dValue: unknown = "hello";
+
+// Error Object is of type 'unknown'
+// console.log(dValue.toUpperCase());
+
+if (typeof dValue == "string") {
+  console.log(dValue.toUpperCase());
 }
 
-console.log(formatValue("krishna"));
-console.log(formatValue(25));
-
-formatValue(37);
-
-type Dog = { bark: () => void };
-type Cat = { meow: () => void };
-
-function makeSound(animal: Dog | Cat): void {
-  if ("bark" in animal) {
-    animal.bark();
-  } else {
-    animal.meow();
-  }
+function throwError(message: string): never {
+  throw new Error(message);
 }
 
-function describe(value: Date | string): void {
-  if (value instanceof Date) {
-    console.log(value.getFullYear());
-  } else {
-    console.log(value.toUpperCase());
+throwError("Something went wrong!");
+
+type Status = "success" | "failed";
+
+function handleStatus(status: Status): string {
+  switch (status) {
+    case "success":
+      return "Completed";
+
+    case "failed":
+      return "Failed";
+
+    default: {
+      const impossible: never = status;
+      return impossible;
+    }
   }
 }
-
-function printLength(value: string | string[]): void {
-  if (typeof value === "string") {
-    console.log(value.length);
-  } else if (Array.isArray(value)) {
-    console.log(value.length);
-  }
-}
-
-printLength("Krishna"); // 7
-printLength(["HTML", "CSS", "TypeScript"]); // 3
