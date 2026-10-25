@@ -346,40 +346,111 @@
 
 // any
 
-let data: any = true;
-data = "hello";
-data = 67;
+// let data: any = true;
+// data = "hello";
+// data = 67;
 
-// data.toUpperCase(); Error
+// // data.toUpperCase(); Error
 
-let dValue: unknown = "hello";
+// let dValue: unknown = "hello";
 
-// Error Object is of type 'unknown'
-// console.log(dValue.toUpperCase());
+// // Error Object is of type 'unknown'
+// // console.log(dValue.toUpperCase());
 
-if (typeof dValue == "string") {
-  console.log(dValue.toUpperCase());
-}
+// if (typeof dValue == "string") {
+//   console.log(dValue.toUpperCase());
+// }
 
-function throwError(message: string): never {
-  throw new Error(message);
-}
+// function throwError(message: string): never {
+//   throw new Error(message);
+// }
 
-throwError("Something went wrong!");
+// throwError("Something went wrong!");
 
-type Status = "success" | "failed";
+// type Status = "success" | "failed";
 
-function handleStatus(status: Status): string {
-  switch (status) {
-    case "success":
-      return "Completed";
+// function handleStatus(status: Status): string {
+//   switch (status) {
+//     case "success":
+//       return "Completed";
 
-    case "failed":
-      return "Failed";
+//     case "failed":
+//       return "Failed";
 
-    default: {
-      const impossible: never = status;
-      return impossible;
-    }
-  }
-}
+//     default: {
+//       const impossible: never = status;
+//       return impossible;
+//     }
+//   }
+// }
+
+// function printUppercase(value: unknown): void {
+//   if (typeof value == "string") {
+//     console.log(value.toUpperCase());
+//   }
+// }
+
+// printUppercase("krishna"); // KRISHNA
+// printUppercase(123); // Should not crash
+// printUppercase(true); // Should not crash
+
+//  Enums and Discriminant union
+
+// enum OrderStatus {
+//   Pending = "PENDING",
+//   Processing = "PROCESSING",
+//   Delivered = "DELIVERED",
+//   Cancelled = "CANCELLED",
+// }
+
+// const Status = OrderStatus.Delivered;
+// console.log(Status);
+
+// // Better
+
+// type OrderStatus = "pending" | "processing" | "delivered" | "cancelled";
+
+// // Discriminant Unions
+// type ApiResult =
+//   | { status: "success"; data: string }
+//   | { status: "error"; message: string };
+
+// function handleResult(result: ApiResult): void {
+//   if (result.status === "success") {
+//     console.log(result.data);
+//   } else {
+//     console.log(result.message);
+//   }
+// }
+
+// handleResult({
+//   status: "success",
+//   data: "User loaded!",
+// });
+
+// handleResult({
+//   status: "error",
+//   message: "User not found",
+// });
+
+// type PaymentResult =
+//   | { status: "success"; transactionId: string }
+//   | { status: "failed"; reason: string };
+
+// function handlePayment(result: PaymentResult): void {
+//   if (result.status === "success") {
+//     console.log(result.transactionId);
+//   } else {
+//     console.log(result.reason);
+//   }
+// }
+
+// handlePayment({
+//   status: "success",
+//   transactionId: "TXN123",
+// });
+
+// handlePayment({
+//   status: "failed",
+//   reason: "Insufficient balance",
+// });
