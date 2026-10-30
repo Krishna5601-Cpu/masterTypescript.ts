@@ -344,16 +344,35 @@
 //   status: "failed",
 //   reason: "Insufficient balance",
 // });
-// Generics
-function identity(value) {
-    return value;
+// // Generics
+// function identity<T>(value: T): T {
+//   return value;
+// }
+// const naam = identity<string>("Krishna");
+// const age = identity<number>(20);
+// console.log(naam); // Krishna
+// console.log(age); // 20
+// function getFirst<T>(items: T[]): T | undefined {
+//   return items[0];
+// }
+// console.log(getFirst<number>([10, 20, 30]));
+// console.log(getFirst<string>(["HTML", "CSS", "TypeScript"]));
+// interface ApiResponse<T> {
+//   success: boolean;
+//   data: T;
+// }
+// const userResponse: ApiResponse<string> = {
+//   success: true,
+//   data: "Krishna",
+// };
+// const scoreResponse: ApiResponse<number> = {
+//   success: true,
+//   data: 95,
+// };
+function getLast(arr) {
+    let last = arr.length - 1;
+    return arr[last];
 }
-const naam = identity("Krishna");
-const age = identity(20);
-console.log(naam); // Krishna
-console.log(age); // 20
-function getFirst(items) {
-    return items[0];
-}
-console.log(getFirst([10, 20, 30]));
-console.log(getFirst(["HTML", "CSS", "TypeScript"]));
+getLast([10, 20, 30]); // 30
+getLast(["HTML", "CSS"]); // "CSS"
+getLast([]); // undefined

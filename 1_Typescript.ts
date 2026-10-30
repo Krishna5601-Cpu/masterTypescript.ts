@@ -455,23 +455,48 @@
 //   reason: "Insufficient balance",
 // });
 
-// Generics
-function identity<T>(value: T): T {
-  return value;
-}
+// // Generics
+// function identity<T>(value: T): T {
+//   return value;
+// }
 
-const naam = identity<string>("Krishna");
-const age = identity<number>(20);
+// const naam = identity<string>("Krishna");
+// const age = identity<number>(20);
 
-console.log(naam); // Krishna
-console.log(age); // 20
+// console.log(naam); // Krishna
+// console.log(age); // 20
 
-function getFirst<T>(items: T[]): T | undefined {
-  return items[0];
-}
+// function getFirst<T>(items: T[]): T | undefined {
+//   return items[0];
+// }
 
-console.log(getFirst<number>([10, 20, 30]));
-console.log(getFirst<string>(["HTML", "CSS", "TypeScript"]));
+// console.log(getFirst<number>([10, 20, 30]));
+// console.log(getFirst<string>(["HTML", "CSS", "TypeScript"]));
 
+// interface ApiResponse<T> {
+//   success: boolean;
+//   data: T;
+// }
 
+// const userResponse: ApiResponse<string> = {
+//   success: true,
+//   data: "Krishna",
+// };
 
+// const scoreResponse: ApiResponse<number> = {
+//   success: true,
+//   data: 95,
+// };
+
+// function getLast<T>(arr: T[]): T | undefined {
+//   let last = arr.length - 1;
+//   return arr[last];
+// }
+
+// let num = getLast([10, 20, 30]); // 30
+// let str = getLast(["HTML", "CSS"]); // "CSS"
+// let un = getLast([]); // undefined
+
+// console.log(num);
+// console.log(str);
+// console.log(un);
