@@ -454,3 +454,24 @@
 //   status: "failed",
 //   reason: "Insufficient balance",
 // });
+
+// Generics
+function identity<T>(value: T): T {
+  return value;
+}
+
+const naam = identity<string>("Krishna");
+const age = identity<number>(20);
+
+console.log(naam); // Krishna
+console.log(age); // 20
+
+function getFirst<T>(items: T[]): T | undefined {
+  return items[0];
+}
+
+console.log(getFirst<number>([10, 20, 30]));
+console.log(getFirst<string>(["HTML", "CSS", "TypeScript"]));
+
+
+

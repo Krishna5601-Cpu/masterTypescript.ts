@@ -344,3 +344,16 @@
 //   status: "failed",
 //   reason: "Insufficient balance",
 // });
+// Generics
+function identity(value) {
+    return value;
+}
+const naam = identity("Krishna");
+const age = identity(20);
+console.log(naam); // Krishna
+console.log(age); // 20
+function getFirst(items) {
+    return items[0];
+}
+console.log(getFirst([10, 20, 30]));
+console.log(getFirst(["HTML", "CSS", "TypeScript"]));
