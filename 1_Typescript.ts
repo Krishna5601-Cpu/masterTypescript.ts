@@ -500,3 +500,38 @@
 // console.log(num);
 // console.log(str);
 // console.log(un);
+
+// // Generics Constraints
+// function getlength<T extends { length: number }>(value: T) {
+//   return value.length;
+// }
+
+// // with interfaces
+
+// interface User {
+//   id: number;
+//   name: string;
+// }
+
+// function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+//   return obj[key];
+// }
+
+// const user: User = {
+//   id: 101,
+//   name: "Krishna",
+// };
+
+// console.log(getProperty(user, "name")); // Krishna
+// console.log(getProperty(user, "id")); // 101
+
+// const product = {
+//   name: "Laptop",
+//   price: 75000,
+//   inStock: true,
+// };
+
+// getProperty(product, "name"); // Laptop
+// getProperty(product, "price"); // 75000
+// // getProperty(product, "unknown"); // TypeScript error
+

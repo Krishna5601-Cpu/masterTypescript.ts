@@ -369,10 +369,34 @@
 //   success: true,
 //   data: 95,
 // };
-function getLast(arr) {
-    let last = arr.length - 1;
-    return arr[last];
+// function getLast<T>(arr: T[]): T | undefined {
+//   let last = arr.length - 1;
+//   return arr[last];
+// }
+// let num = getLast([10, 20, 30]); // 30
+// let str = getLast(["HTML", "CSS"]); // "CSS"
+// let un = getLast([]); // undefined
+// console.log(num);
+// console.log(str);
+// console.log(un);
+// Generics Constraints
+function getlength(value) {
+    return value.length;
 }
-getLast([10, 20, 30]); // 30
-getLast(["HTML", "CSS"]); // "CSS"
-getLast([]); // undefined
+function getProperty(obj, key) {
+    return obj[key];
+}
+const user = {
+    id: 101,
+    name: "Krishna",
+};
+console.log(getProperty(user, "name")); // Krishna
+console.log(getProperty(user, "id")); // 101
+const product = {
+    name: "Laptop",
+    price: 75000,
+    inStock: true,
+};
+getProperty(product, "name"); // Laptop
+getProperty(product, "price"); // 75000
+// getProperty(product, "unknown"); // TypeScript error
