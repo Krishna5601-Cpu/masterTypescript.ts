@@ -379,24 +379,70 @@
 // console.log(num);
 // console.log(str);
 // console.log(un);
-// Generics Constraints
-function getlength(value) {
-    return value.length;
-}
-function getProperty(obj, key) {
-    return obj[key];
-}
-const user = {
-    id: 101,
-    name: "Krishna",
-};
-console.log(getProperty(user, "name")); // Krishna
-console.log(getProperty(user, "id")); // 101
-const product = {
-    name: "Laptop",
-    price: 75000,
-    inStock: true,
-};
-getProperty(product, "name"); // Laptop
-getProperty(product, "price"); // 75000
-// getProperty(product, "unknown"); // TypeScript error
+// // Generics Constraints
+// function getlength<T extends { length: number }>(value: T) {
+//   return value.length;
+// }
+// // with interfaces
+// interface User {
+//   id: number;
+//   name: string;
+// }
+// function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+//   return obj[key];
+// }
+// const user: User = {
+//   id: 101,
+//   name: "Krishna",
+// };
+// console.log(getProperty(user, "name")); // Krishna
+// console.log(getProperty(user, "id")); // 101
+// const product = {
+//   name: "Laptop",
+//   price: 75000,
+//   inStock: true,
+// };
+// getProperty(product, "name"); // Laptop
+// getProperty(product, "price"); // 75000
+// // getProperty(product, "unknown"); // TypeScript error
+// keyof
+// interface User {
+//   id: number;
+//   name: string;
+// }
+// type UserKeys = keyof User;
+// const config = {
+//   theme: "dark",
+//   lang: "en",
+// };
+// type ConfigUser = keyof typeof config;
+// const product = {
+//   name: "Laptop",
+//   price: 75000,
+//   isStock: true,
+// };
+// type ProductUser = keyof typeof product;
+// type Product = {
+//   name: string;
+//   price: number;
+//   inStock: boolean;
+// };
+// type ProductName = Product["name"]; // string
+// type ProductPrice = Product["price"]; // number
+// type ProductValues = Product[keyof Product];
+// // string | number | boolean
+// function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+//   return obj[key];
+// }
+// const product1 = {
+//   name: "Laptop",
+//   price: 75000,
+//   inStock: true,
+// };
+// const naam = getProperty(product1, "name");
+// const price = getProperty(product1, "price");
+// const stock = getProperty(product1, "inStock");
+// console.log(naam); // Laptop
+// console.log(price); // 75000
+// console.log(stock); // true
+// // getProperty(product, "unknown"); Error

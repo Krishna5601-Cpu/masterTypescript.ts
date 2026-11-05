@@ -537,56 +537,82 @@
 
 // keyof
 
+// interface User {
+//   id: number;
+//   name: string;
+// }
+
+// type UserKeys = keyof User;
+
+// const config = {
+//   theme: "dark",
+//   lang: "en",
+// };
+
+// type ConfigUser = keyof typeof config;
+
+// const product = {
+//   name: "Laptop",
+//   price: 75000,
+//   isStock: true,
+// };
+
+// type ProductUser = keyof typeof product;
+
+// type Product = {
+//   name: string;
+//   price: number;
+//   inStock: boolean;
+// };
+
+// type ProductName = Product["name"]; // string
+// type ProductPrice = Product["price"]; // number
+
+// type ProductValues = Product[keyof Product];
+// // string | number | boolean
+
+// function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
+//   return obj[key];
+// }
+
+// const product1 = {
+//   name: "Laptop",
+//   price: 75000,
+//   inStock: true,
+// };
+
+// const naam = getProperty(product1, "name");
+// const price = getProperty(product1, "price");
+// const stock = getProperty(product1, "inStock");
+
+// console.log(naam); // Laptop
+// console.log(price); // 75000
+// console.log(stock); // true
+
+// // getProperty(product, "unknown"); Error
+
 interface User {
-  id: number;
   name: string;
+  age: number;
+  email: string;
 }
 
-type UserKeys = keyof User;
+type UpdateUser = Partial<User>;
 
-const config = {
-  theme: "dark",
-  lang: "en",
+const update: UpdateUser = {
+  name: "Krishna",
 };
 
-type ConfigUser = keyof typeof config;
-
-const product = {
-  name: "Laptop",
-  price: 75000,
-  isStock: true,
-};
-
-type ProductUser = keyof typeof product;
-
-type Product = {
+interface User1 {
   name: string;
-  price: number;
-  inStock: boolean;
-};
-
-type ProductName = Product["name"]; // string
-type ProductPrice = Product["price"]; // number
-
-type ProductValues = Product[keyof Product];
-// string | number | boolean
-
-function getProperty<T, K extends keyof T>(obj: T, key: K): T[K] {
-  return obj[key];
+  age?: number;
 }
 
-const product1 = {
-  name: "Laptop",
-  price: 75000,
-  inStock: true,
+type CompleteUser = Required<User1>;
+
+const user: CompleteUser = {
+  name: "Krishna",
+  age: 20,
 };
 
-const naam = getProperty(product1, "name");
-const price = getProperty(product1, "price");
-const stock = getProperty(product1, "inStock");
 
-console.log(naam); // Laptop
-console.log(price); // 75000
-console.log(stock); // true
-
-// getProperty(product, "unknown"); Error
