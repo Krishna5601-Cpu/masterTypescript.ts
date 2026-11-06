@@ -446,3 +446,59 @@
 // console.log(price); // 75000
 // console.log(stock); // true
 // // getProperty(product, "unknown"); Error
+// interface User {
+//   name: string;
+//   age: number;
+//   email: string;
+// }
+// type UpdateUser = Partial<User>;
+// const update: UpdateUser = {
+//   name: "Krishna",
+// };
+// interface User1 {
+//   name: string;
+//   age?: number;
+// }
+// type CompleteUser = Required<User1>;
+// const user: CompleteUser = {
+//   name: "Krishna",
+//   age: 20,
+// };
+// interface User2 {
+//   id: number;
+//   name: string;
+//   email: string;
+//   password: string;
+// }
+// type PublicUser = Pick<User2, "id" | "name">;
+// type SafeUser = Omit<User, "password">;
+// type Roles = "admin" | "user" | "guest";
+// const permissions: Record<Roles, boolean> = {
+//   admin: true,
+//   user: true,
+//   guest: false,
+// };
+// interface User3 {
+//   id: number;
+//   username: string;
+//   email: string;
+//   password: string;
+//   age?: number;
+// }
+// type Createuser = Partial<User3>;
+// type PublicUser = Pick<User3, "id" | "username" | "email">;
+// type SafeUser = Omit<User3, "password">;
+// Classes
+class Person {
+    name;
+    age;
+    constructor(n, a) {
+        this.name = n;
+        this.age = a;
+    }
+    introduce() {
+        return `Hello my name is ${this.name} and my age is ${this.age}`;
+    }
+}
+const person1 = new Person("Divya", 20);
+console.log(person1.introduce());

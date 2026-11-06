@@ -591,28 +591,98 @@
 
 // // getProperty(product, "unknown"); Error
 
-interface User {
+// interface User {
+//   name: string;
+//   age: number;
+//   email: string;
+// }
+
+// type UpdateUser = Partial<User>;
+
+// const update: UpdateUser = {
+//   name: "Krishna",
+// };
+
+// interface User1 {
+//   name: string;
+//   age?: number;
+// }
+
+// type CompleteUser = Required<User1>;
+
+// const user: CompleteUser = {
+//   name: "Krishna",
+//   age: 20,
+// };
+
+// interface User2 {
+//   id: number;
+//   name: string;
+//   email: string;
+//   password: string;
+// }
+
+// type PublicUser = Pick<User2, "id" | "name">;
+
+// type SafeUser = Omit<User, "password">;
+
+// type Roles = "admin" | "user" | "guest";
+
+// const permissions: Record<Roles, boolean> = {
+//   admin: true,
+//   user: true,
+//   guest: false,
+// };
+
+// interface User3 {
+//   id: number;
+//   username: string;
+//   email: string;
+//   password: string;
+//   age?: number;
+// }
+
+// type Createuser = Partial<User3>;
+// type PublicUser = Pick<User3, "id" | "username" | "email">;
+// type SafeUser = Omit<User3, "password">;
+
+// Classes
+
+class Person {
   name: string;
   age: number;
-  email: string;
+
+  constructor(name: string, age: number) {
+    this.name = name;
+    this.age = age;
+  }
+
+  introduce(): string {
+    return `Hi, I'm ${this.name} and I'm ${this.age} years old.`;
+  }
 }
 
-type UpdateUser = Partial<User>;
+const person1 = new Person("Alice", 30);
+console.log(person1.introduce());
+const person2 = new Person("Divya", 20);
+console.log(person2.introduce());
 
-const update: UpdateUser = {
-  name: "Krishna",
-};
-
-interface User1 {
+class Student {
   name: string;
-  age?: number;
+  age: number;
+
+  constructor(n: string, a: number) {
+    this.name = n;
+    this.age = a;
+  }
+
+  display(): void {
+    console.log(`Hi i'm ${this.name} and i'm ${this.age} years old`);
+  }
 }
 
-type CompleteUser = Required<User1>;
-
-const user: CompleteUser = {
-  name: "Krishna",
-  age: 20,
-};
+const student1 = new Student("Krishna Chauhan", 20);
+student1.display();
 
 
+// Access specifiers - public, private and protected 
