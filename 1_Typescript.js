@@ -492,13 +492,69 @@
 class Person {
     name;
     age;
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+    introduce() {
+        return `Hi, I'm ${this.name} and I'm ${this.age} years old.`;
+    }
+}
+const person1 = new Person("Alice", 30);
+console.log(person1.introduce());
+const person2 = new Person("Divya", 20);
+console.log(person2.introduce());
+class Student {
+    name;
+    age;
     constructor(n, a) {
         this.name = n;
         this.age = a;
     }
-    introduce() {
-        return `Hello my name is ${this.name} and my age is ${this.age}`;
+    display() {
+        console.log(`Hi i'm ${this.name} and i'm ${this.age} years old`);
     }
 }
-const person1 = new Person("Divya", 20);
-console.log(person1.introduce());
+const student1 = new Student("Krishna Chauhan", 20);
+student1.display();
+// Access specifiers - public, private and protected
+// class BankAccount {
+//   public accountHolder: string;
+//   private balance: number;
+//   protected accountType: string;
+//   constructor(name: string, balance: number) {
+//     this.accountHolder = name;
+//     this.balance = balance;
+//     this.accountType = "Savings";
+//   }
+//   public getBalance(): number {
+//     return this.balance;
+//   }
+// }
+// const account = new BankAccount("Krishna", 5000);
+// console.log(account.accountHolder); // Krishna
+// console.log(account.getBalance()); // 5000
+// // console.log(account.balance); // ❌ Error
+class BankAccount {
+    accountHolder;
+    balance;
+    constructor(name, initbal) {
+        this.accountHolder = name;
+        this.balance = initbal;
+    }
+    deposit(amt) {
+        this.balance = this.balance + amt;
+        return this.balance;
+    }
+    withdraw(amt) {
+        this.balance = this.balance - amt;
+        return this.balance;
+    }
+    getBalance() {
+        return this.balance;
+    }
+}
+const myAccount = new BankAccount("Krishna", 5000);
+myAccount.deposit(2000);
+myAccount.withdraw(1000);
+console.log(myAccount.getBalance()); // 6000

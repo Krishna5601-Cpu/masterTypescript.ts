@@ -684,5 +684,58 @@ class Student {
 const student1 = new Student("Krishna Chauhan", 20);
 student1.display();
 
+// Access specifiers - public, private and protected
 
-// Access specifiers - public, private and protected 
+// class BankAccount {
+//   public accountHolder: string;
+//   private balance: number;
+//   protected accountType: string;
+
+//   constructor(name: string, balance: number) {
+//     this.accountHolder = name;
+//     this.balance = balance;
+//     this.accountType = "Savings";
+//   }
+
+//   public getBalance(): number {
+//     return this.balance;
+//   }
+// }
+
+// const account = new BankAccount("Krishna", 5000);
+
+// console.log(account.accountHolder); // Krishna
+// console.log(account.getBalance()); // 5000
+
+// // console.log(account.balance); // ❌ Error
+
+class BankAccount {
+  public accountHolder: string;
+  private balance: number;
+
+  constructor(name: string, initbal: number) {
+    this.accountHolder = name;
+    this.balance = initbal;
+  }
+
+  deposit(amt: number): number {
+    this.balance = this.balance + amt;
+    return this.balance;
+  }
+
+  withdraw(amt: number): number {
+    this.balance = this.balance - amt;
+    return this.balance;
+  }
+
+  getBalance(): number {
+    return this.balance;
+  }
+}
+
+const myAccount = new BankAccount("Krishna", 5000);
+
+myAccount.deposit(2000);
+myAccount.withdraw(1000);
+
+console.log(myAccount.getBalance()); // 6000
