@@ -709,6 +709,37 @@ student1.display();
 
 // // console.log(account.balance); // ❌ Error
 
+// class BankAccount {
+//   public accountHolder: string;
+//   private balance: number;
+
+//   constructor(name: string, initbal: number) {
+//     this.accountHolder = name;
+//     this.balance = initbal;
+//   }
+
+//   deposit(amt: number): number {
+//     this.balance = this.balance + amt;
+//     return this.balance;
+//   }
+
+//   withdraw(amt: number): number {
+//     this.balance = this.balance - amt;
+//     return this.balance;
+//   }
+
+//   getBalance(): number {
+//     return this.balance;
+//   }
+// }
+
+// const myAccount = new BankAccount("Krishna", 5000);
+
+// myAccount.deposit(2000);
+// myAccount.withdraw(1000);
+
+// console.log(myAccount.getBalance()); // 6000
+
 class BankAccount {
   public accountHolder: string;
   private balance: number;
@@ -718,14 +749,27 @@ class BankAccount {
     this.balance = initbal;
   }
 
-  deposit(amt: number): number {
-    this.balance = this.balance + amt;
-    return this.balance;
+  deposit(amt: number): void {
+    if (amt <= 0) {
+      console.log("Invalid deposit amount");
+      return;
+    }
+
+    this.balance += amt;
   }
 
-  withdraw(amt: number): number {
-    this.balance = this.balance - amt;
-    return this.balance;
+  withdraw(amt: number): void {
+    if (amt <= 0) {
+      console.log("Invalid withdrawal amount");
+      return;
+    }
+
+    if (amt > this.balance) {
+      console.log("Insufficient balance");
+      return;
+    }
+
+    this.balance -= amt;
   }
 
   getBalance(): number {
