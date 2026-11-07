@@ -648,41 +648,41 @@
 
 // Classes
 
-class Person {
-  name: string;
-  age: number;
+// class Person {
+//   name: string;
+//   age: number;
 
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
+//   constructor(name: string, age: number) {
+//     this.name = name;
+//     this.age = age;
+//   }
 
-  introduce(): string {
-    return `Hi, I'm ${this.name} and I'm ${this.age} years old.`;
-  }
-}
+//   introduce(): string {
+//     return `Hi, I'm ${this.name} and I'm ${this.age} years old.`;
+//   }
+// }
 
-const person1 = new Person("Alice", 30);
-console.log(person1.introduce());
-const person2 = new Person("Divya", 20);
-console.log(person2.introduce());
+// const person1 = new Person("Alice", 30);
+// console.log(person1.introduce());
+// const person2 = new Person("Divya", 20);
+// console.log(person2.introduce());
 
-class Student {
-  name: string;
-  age: number;
+// class Student {
+//   name: string;
+//   age: number;
 
-  constructor(n: string, a: number) {
-    this.name = n;
-    this.age = a;
-  }
+//   constructor(n: string, a: number) {
+//     this.name = n;
+//     this.age = a;
+//   }
 
-  display(): void {
-    console.log(`Hi i'm ${this.name} and i'm ${this.age} years old`);
-  }
-}
+//   display(): void {
+//     console.log(`Hi i'm ${this.name} and i'm ${this.age} years old`);
+//   }
+// }
 
-const student1 = new Student("Krishna Chauhan", 20);
-student1.display();
+// const student1 = new Student("Krishna Chauhan", 20);
+// student1.display();
 
 // Access specifiers - public, private and protected
 
@@ -740,46 +740,87 @@ student1.display();
 
 // console.log(myAccount.getBalance()); // 6000
 
-class BankAccount {
-  public accountHolder: string;
-  private balance: number;
+// class BankAccount {
+//   public accountHolder: string;
+//   private balance: number;
 
-  constructor(name: string, initbal: number) {
-    this.accountHolder = name;
-    this.balance = initbal;
-  }
+//   constructor(name: string, initbal: number) {
+//     this.accountHolder = name;
+//     this.balance = initbal;
+//   }
 
-  deposit(amt: number): void {
-    if (amt <= 0) {
-      console.log("Invalid deposit amount");
-      return;
-    }
+//   deposit(amt: number): void {
+//     if (amt <= 0) {
+//       console.log("Invalid deposit amount");
+//       return;
+//     }
 
-    this.balance += amt;
-  }
+//     this.balance += amt;
+//   }
 
-  withdraw(amt: number): void {
-    if (amt <= 0) {
-      console.log("Invalid withdrawal amount");
-      return;
-    }
+//   withdraw(amt: number): void {
+//     if (amt <= 0) {
+//       console.log("Invalid withdrawal amount");
+//       return;
+//     }
 
-    if (amt > this.balance) {
-      console.log("Insufficient balance");
-      return;
-    }
+//     if (amt > this.balance) {
+//       console.log("Insufficient balance");
+//       return;
+//     }
 
-    this.balance -= amt;
-  }
+//     this.balance -= amt;
+//   }
 
-  getBalance(): number {
-    return this.balance;
+//   getBalance(): number {
+//     return this.balance;
+//   }
+// }
+
+// const myAccount = new BankAccount("Krishna", 5000);
+
+// myAccount.deposit(2000);
+// myAccount.withdraw(1000);
+
+// console.log(myAccount.getBalance()); // 6000
+
+class Parent {
+  constructor(public name: string) {}
+  greet(): string {
+    return `Hi, I'm ${this.name}`;
   }
 }
 
-const myAccount = new BankAccount("Krishna", 5000);
+class Child extends Parent {
+  constructor(
+    name: string,
+    public age: number,
+  ) {
+    super(name);
+  }
 
-myAccount.deposit(2000);
-myAccount.withdraw(1000);
+  greet() {
+    return super.greet() + `and age: ${this.age}`;
+  }
+}
 
-console.log(myAccount.getBalance()); // 6000
+class Animal {
+  constructor(public name: string) {}
+
+  eat(): void {
+    console.log(`${this.name} is eating`);
+  }
+}
+
+class Dog extends Animal {
+  bark(): void {
+    console.log(`${this.name} says woof!`);
+  }
+}
+
+const dugu = new Dog("Cherry");
+
+dugu.bark();
+dugu.eat();
+
+
