@@ -627,3 +627,29 @@ class Dog extends Animal {
 const dugu = new Dog("Cherry");
 dugu.bark();
 dugu.eat();
+// Method overriding -
+class Animal1 {
+    makeSound() {
+        console.log("Animal makes a sound");
+    }
+}
+class Dog1 extends Animal1 {
+    makeSound() {
+        console.log("Dog barks");
+    }
+}
+const dog = new Dog1();
+dog.makeSound(); // Dog barks
+class Payment {
+    showMessage() {
+        console.log("Processing payment...");
+    }
+}
+class UpiPayment extends Payment {
+    processPayment(amount) {
+        console.log(`Paid ₹${amount} using UPI`);
+    }
+}
+const payment = new UpiPayment();
+payment.showMessage();
+payment.processPayment(500);

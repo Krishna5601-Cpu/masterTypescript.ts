@@ -839,4 +839,21 @@ class Dog1 extends Animal1 {
 const dog = new Dog1();
 dog.makeSound(); // Dog barks
 
+abstract class Payment {
+  abstract processPayment(amount: number): void;
 
+  showMessage(): void {
+    console.log("Processing payment...");
+  }
+}
+
+class UpiPayment extends Payment {
+  processPayment(amount: number): void {
+    console.log(`Paid ₹${amount} using UPI`);
+  }
+}
+
+const payment = new UpiPayment();
+
+payment.showMessage();
+payment.processPayment(500);
