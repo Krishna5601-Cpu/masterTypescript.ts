@@ -823,4 +823,20 @@ const dugu = new Dog("Cherry");
 dugu.bark();
 dugu.eat();
 
+// Method overriding -
+class Animal1 {
+  makeSound(): void {
+    console.log("Animal makes a sound");
+  }
+}
+
+class Dog1 extends Animal1 {
+  override makeSound(): void {
+    console.log("Dog barks");
+  }
+}
+
+const dog = new Dog1();
+dog.makeSound(); // Dog barks
+
 
